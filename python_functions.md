@@ -5,14 +5,15 @@ From PyDocs, a note on what I mean by statement:
 
 ## Overall structure of a python function
 
-![def name_function](https://raw.githubusercontent.com/diek/function_blog/master/_images/function_structure.png)
+![def name_function]
+(https://raw.githubusercontent.com/diek/function_blog/master/_images/function_structure.png)
 
 1. `def` is mandatory
 2. function name, be descriptive
 3. parameters, inside of parenthesis, sometimes referred to as arguments:
-	- parameters, may be zero, or 1, 2, 3, or or more. If more than one must be separated by comma.
+	- parameters, may be none/zero, or 1, 2, 3, or more. If more than one, they must be separated by a comma.
   	- a parameter(s) is provided in the function call
-4. doc string - optional but should be included
+4. docstring - optional but should be included, see [PEP 257 -- Docstring Conventions](http://legacy.python.org/dev/peps/pep-0257/) for more detail.
 5. body:
 	- heart of the function, like the engine, this is the mechanics and all the working parts.
 	- made up of one or more statements
