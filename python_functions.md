@@ -5,13 +5,11 @@ From PyDocs, a note on what I mean by statement:
 
 ## Overall structure of a python function
 
-    `def name_function(parameters):
-        doc string
-        body`
+![def name_function](https://raw.githubusercontent.com/diek/function_blog/master/_images/function_structure.png)
 
-1. def is mandatory
-2. function's name, be descriptive
-3. parameters, sometimes referred to as arguments:
+1. `def` is mandatory
+2. function name, be descriptive
+3. parameters, inside of parenthesis, sometimes referred to as arguments:
 	- parameters, may be zero, or 1, 2, 3, or or more. If more than one must be separated by comma.
   	- a parameter(s) is provided in the function call
 4. doc string - optional but should be included
@@ -22,6 +20,7 @@ From PyDocs, a note on what I mean by statement:
 	- even if you do not use a return statement, python will return 'None'
 
 ### The return statement.
+
 
 Two important points from PyDocs:
 

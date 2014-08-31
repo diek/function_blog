@@ -1,4 +1,4 @@
 def name_function(parameters):
-    ''' doc string
+    ''' docstring
     '''
     body
