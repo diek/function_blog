@@ -1,0 +1,777 @@
+
+1
+00:00:00,410 --> 00:00:03,560
+So far we've been building up our repertoire of Python
+
+2
+00:00:03,560 --> 00:00:04,320
+expressions.
+
+3
+00:00:04,320 --> 00:00:07,290
+We've seen numbers and strings as primitive data objects.
+
+4
+00:00:07,290 --> 00:00:08,880
+We've seen assignment, the ability to
+
+5
+00:00:08,880 --> 00:00:10,100
+give a name to a value.
+
+6
+00:00:10,100 --> 00:00:12,400
+We've seen input and output characteristics.
+
+7
+00:00:12,400 --> 00:00:14,930
+We've seen the ability to make comparisons, and we've added
+
+8
+00:00:14,930 --> 00:00:16,149
+in looping constructs.
+
+9
+00:00:16,149 --> 00:00:17,960
+Things like for and while loops.
+
+10
+00:00:17,960 --> 00:00:20,980
+With that set of tools, they turn out to be sufficient to
+
+11
+00:00:20,980 --> 00:00:24,510
+give us what we call a Turing complete language.
+
+12
+00:00:24,510 --> 00:00:25,500
+And what does that mean?
+
+13
+00:00:25,500 --> 00:00:28,110
+It says just with that set of tools, anything that's
+
+14
+00:00:28,110 --> 00:00:29,870
+computable, we can compute.
+
+15
+00:00:29,870 --> 00:00:32,050
+So we can compute anything.
+
+16
+00:00:32,049 --> 00:00:33,810
+That's actually amazing.
+
+17
+00:00:33,810 --> 00:00:36,750
+With just that set of tools, anything that's computable, we
+
+18
+00:00:36,750 --> 00:00:40,280
+can capture with a description using those sets of tools.
+
+19
+00:00:40,280 --> 00:00:41,870
+Sounds like we're done.
+
+20
+00:00:41,870 --> 00:00:44,110
+And of course we're not, and part of the reason we're not
+
+21
+00:00:44,110 --> 00:00:47,230
+is the code we're able to write so far, those scripts
+
+22
+00:00:47,230 --> 00:00:50,610
+that we've done lack what we call abstraction.
+
+23
+00:00:50,610 --> 00:00:52,090
+And let me give you some reasons of what I mean by
+
+24
+00:00:52,090 --> 00:00:54,590
+that, and then what the definition of abstraction is.
+
+25
+00:00:54,590 --> 00:00:57,250
+For example, as you saw before, every time I want to
+
+26
+00:00:57,250 --> 00:01:00,230
+use a script, I've got to reload the file.
+
+27
+00:01:00,230 --> 00:01:02,320
+And if I want to do it with some different parameters,
+
+28
+00:01:02,320 --> 00:01:04,319
+I've got to change the values of variables
+
+29
+00:01:04,319 --> 00:01:06,160
+before I run that file.
+
+30
+00:01:06,160 --> 00:01:09,740
+Moreover, or more importantly, I can't use the same variable
+
+31
+00:01:09,740 --> 00:01:11,370
+names other places in the code.
+
+32
+00:01:11,370 --> 00:01:14,100
+If I've got a piece of code this using x, y, and z, I've
+
+33
+00:01:14,100 --> 00:01:16,720
+got to make sure that they're not accidentally getting
+
+34
+00:01:16,720 --> 00:01:17,830
+changed somewhere else.
+
+35
+00:01:17,830 --> 00:01:20,360
+So I'm stuck with having to be very careful
+
+36
+00:01:20,360 --> 00:01:22,030
+about the use of names.
+
+37
+00:01:22,030 --> 00:01:24,490
+And finally, imagine I've got a piece of code that's
+
+38
+00:01:24,490 --> 00:01:26,560
+computing the maximum of two numbers.
+
+39
+00:01:26,560 --> 00:01:28,600
+I might want to use that many places.
+
+40
+00:01:28,600 --> 00:01:31,180
+I'm going to have to copy it throughout the code.
+
+41
+00:01:31,180 --> 00:01:33,840
+Doesn't sound too bad, except it gets very quickly
+
+42
+00:01:33,840 --> 00:01:36,260
+cumbersome to be able to maintain that code.
+
+43
+00:01:36,260 --> 00:01:39,440
+Suppose I change my mind about the actual details of how I do
+
+44
+00:01:39,440 --> 00:01:40,720
+that computation.
+
+45
+00:01:40,720 --> 00:01:42,960
+I've got to then search through the code and find all
+
+46
+00:01:42,960 --> 00:01:46,460
+the places where I was doing that, and make that change.
+
+47
+00:01:46,460 --> 00:01:48,220
+Otherwise I'm going to mess up.
+
+48
+00:01:48,220 --> 00:01:51,190
+So I lack abstraction, and what we're going to do is add
+
+49
+00:01:51,190 --> 00:01:52,360
+the idea of a function.
+
+50
+00:01:52,360 --> 00:01:55,050
+A function is going to give us a way to capture a
+
+51
+00:01:55,050 --> 00:01:58,780
+computation, to wrap it up in a package and then treat that
+
+52
+00:01:58,780 --> 00:02:00,710
+function as if it were a primitive.
+
+53
+00:02:00,710 --> 00:02:04,730
+Something provided to us by Python that we can just use.
+
+54
+00:02:04,730 --> 00:02:06,000
+Let's look at that.
+
+55
+00:02:06,000 --> 00:02:08,139
+Here's a very simple example, just to get us started.
+
+56
+00:02:08,139 --> 00:02:11,560
+Suppose that we want to take two numbers whose names, or
+
+57
+00:02:11,560 --> 00:02:14,270
+variable names are x and y, and we want to compute the
+
+58
+00:02:14,270 --> 00:02:16,960
+maximum and bind that to the name z.
+
+59
+00:02:16,960 --> 00:02:18,720
+Here's a very simple script that would do it.
+
+60
+00:02:18,720 --> 00:02:21,050
+Assuming I've got values for x and y, I just do the
+
+61
+00:02:21,050 --> 00:02:22,000
+comparison.
+
+62
+00:02:22,000 --> 00:02:24,890
+If x is greater than y, I bind z to x.
+
+63
+00:02:24,890 --> 00:02:28,220
+So there's a binding there, and if not I bind z to y.
+
+64
+00:02:28,220 --> 00:02:30,420
+But as I already said, notice the problem here.
+
+65
+00:02:30,420 --> 00:02:33,280
+I'm going to have to copy this everywhere that
+
+66
+00:02:33,280 --> 00:02:34,350
+I want to use it.
+
+67
+00:02:34,350 --> 00:02:36,040
+That's going to be a real pain.
+
+68
+00:02:36,040 --> 00:02:40,400
+And I can't reuse x and y, because if I did, I might
+
+69
+00:02:40,400 --> 00:02:41,920
+actually change the values here, and that's
+
+70
+00:02:41,920 --> 00:02:42,960
+going to be a problem.
+
+71
+00:02:42,960 --> 00:02:44,100
+So I want to capture this.
+
+72
+00:02:44,100 --> 00:02:45,590
+I keep using that word capture, let's
+
+73
+00:02:45,590 --> 00:02:46,800
+see what that means.
+
+74
+00:02:46,800 --> 00:02:50,130
+The idea is that we want to wrap up that computation, that
+
+75
+00:02:50,130 --> 00:02:54,020
+set of mechanical steps, that recipe within a particular
+
+76
+00:02:54,020 --> 00:02:57,160
+scope so that we can treat that function, that
+
+77
+00:02:57,160 --> 00:02:59,110
+computation as if it were a primitive.
+
+78
+00:02:59,110 --> 00:03:02,410
+Then I could just use it by simply calling its name, using
+
+79
+00:03:02,410 --> 00:03:05,130
+the name, and I'll get back that procedure object, and
+
+80
+00:03:05,130 --> 00:03:07,680
+giving some input into that function.
+
+81
+00:03:07,680 --> 00:03:09,540
+We'll see how to do that in a second.
+
+82
+00:03:09,540 --> 00:03:12,530
+But a key thing by doing this is that the internal details,
+
+83
+00:03:12,530 --> 00:03:15,150
+the steps inside of the computation are going to be
+
+84
+00:03:15,150 --> 00:03:16,540
+hidden from the users.
+
+85
+00:03:16,540 --> 00:03:18,200
+They won't know what they actually are, they're going to
+
+86
+00:03:18,200 --> 00:03:21,140
+just treat this like what we call a black box.
+
+87
+00:03:21,140 --> 00:03:23,910
+Something that we can use that satisfies a particular
+
+88
+00:03:23,910 --> 00:03:26,400
+contract, but we don't need to know the details inside.
+
+89
+00:03:26,400 --> 00:03:29,370
+And more importantly, what happens inside won't have any
+
+90
+00:03:29,370 --> 00:03:33,670
+effect on computations outside the scope of this function.
+
+91
+00:03:33,670 --> 00:03:34,960
+What does it look like?
+
+92
+00:03:34,960 --> 00:03:38,570
+Well, here's the syntax for a definition of a function.
+
+93
+00:03:38,570 --> 00:03:40,730
+It's got, let me in fact give you the next
+
+94
+00:03:40,730 --> 00:03:41,460
+pieces of it here.
+
+95
+00:03:41,460 --> 00:03:44,850
+It's got a keyword, def, that tells Python I'm about to
+
+96
+00:03:44,850 --> 00:03:47,450
+create a definition of the procedure.
+
+97
+00:03:47,450 --> 00:03:49,440
+It has a name for a function.
+
+98
+00:03:49,440 --> 00:03:51,930
+And I've put that here in angle braces just to say it'll
+
+99
+00:03:51,930 --> 00:03:53,660
+be some particular instance.
+
+100
+00:03:53,660 --> 00:03:56,350
+And the name can be any legal Python name.
+
+101
+00:03:56,350 --> 00:03:59,780
+And then within parentheses, we're going to have a sequence
+
+102
+00:03:59,780 --> 00:04:01,900
+of 0, 1, or more formal
+
+103
+00:04:01,900 --> 00:04:04,420
+parameters, names for variables.
+
+104
+00:04:04,420 --> 00:04:06,935
+And those names are going to be used in the function body.
+
+105
+00:04:06,935 --> 00:04:09,230
+And then we have a colon here.
+
+106
+00:04:09,230 --> 00:04:12,560
+That is followed by the body of the function, which is any
+
+107
+00:04:12,560 --> 00:04:15,750
+sequence of legal Python expressions that's going to do
+
+108
+00:04:15,750 --> 00:04:17,160
+the actual computation.
+
+109
+00:04:17,160 --> 00:04:19,550
+And what we'll see is that within that body, we're going
+
+110
+00:04:19,550 --> 00:04:23,510
+to use the names of the formal parameters to identify the
+
+111
+00:04:23,510 --> 00:04:26,390
+places where we want to use the values associated with
+
+112
+00:04:26,390 --> 00:04:27,330
+those parameters.
+
+113
+00:04:27,330 --> 00:04:29,410
+So those very lanes are going to be used inside
+
+114
+00:04:29,410 --> 00:04:30,470
+the function body.
+
+115
+00:04:30,470 --> 00:04:32,390
+And of course there's an indentation here just to help
+
+116
+00:04:32,390 --> 00:04:34,790
+us determine the scope, or the length of the function
+
+117
+00:04:34,790 --> 00:04:35,880
+procedure itself.
+
+118
+00:04:35,880 --> 00:04:37,500
+That's the syntax.
+
+119
+00:04:37,500 --> 00:04:39,060
+Let's look at an example.
+
+120
+00:04:39,060 --> 00:04:40,540
+Well, let me go back to my idea of taking
+
+121
+00:04:40,540 --> 00:04:41,870
+the max of two numbers.
+
+122
+00:04:41,870 --> 00:04:44,120
+Here's a nice function definition.
+
+123
+00:04:44,120 --> 00:04:47,530
+I say define, and there's the name, max.
+
+124
+00:04:47,530 --> 00:04:50,690
+Inside of the parens here I've got two formal parameters, x
+
+125
+00:04:50,690 --> 00:04:54,670
+and y, and then the body is simply a description of the
+
+126
+00:04:54,670 --> 00:04:56,190
+computations I want to do.
+
+127
+00:04:56,190 --> 00:04:59,030
+And I'm going to compare x to y, and depending on the value,
+
+128
+00:04:59,030 --> 00:05:01,560
+whether x is greater than y or not, I'm either going to
+
+129
+00:05:01,560 --> 00:05:04,050
+return the value of x, or return the value of y.
+
+130
+00:05:04,050 --> 00:05:06,050
+We'll come back to return in a second, but let's just think
+
+131
+00:05:06,050 --> 00:05:07,350
+about how would we use this?
+
+132
+00:05:07,350 --> 00:05:12,020
+So we invoke this, or we call it, as we say, by simply using
+
+133
+00:05:12,020 --> 00:05:13,090
+this sort of an expression.
+
+134
+00:05:13,090 --> 00:05:16,700
+We say I want to bind z to, and there's the assignment
+
+135
+00:05:16,700 --> 00:05:20,090
+statement, the value that this function max gives me on these
+
+136
+00:05:20,090 --> 00:05:21,630
+arguments 3 and 4.
+
+137
+00:05:21,630 --> 00:05:26,000
+When we do that function call, when we invoke max of 3 and 4,
+
+138
+00:05:26,000 --> 00:05:28,760
+we literally get the values of these expressions,
+
+139
+00:05:28,760 --> 00:05:29,280
+and those are easy.
+
+140
+00:05:29,280 --> 00:05:30,600
+In this case they're just numbers.
+
+141
+00:05:30,600 --> 00:05:34,590
+And given those values, we are going to locally bind x to the
+
+142
+00:05:34,590 --> 00:05:38,440
+value of 3, y to the value of 4, just as if they were like
+
+143
+00:05:38,440 --> 00:05:40,850
+assignment statements in a very particular scope.
+
+144
+00:05:40,850 --> 00:05:44,900
+And then relative to those bindings, the body expressions
+
+145
+00:05:44,900 --> 00:05:46,100
+are going to be evaluated.
+
+146
+00:05:46,100 --> 00:05:48,100
+And you can see, then, this is going to do exactly what I did
+
+147
+00:05:48,100 --> 00:05:49,230
+with my little script.
+
+148
+00:05:49,230 --> 00:05:50,660
+So that's cool.
+
+149
+00:05:50,660 --> 00:05:52,990
+Now, what about the body?
+
+150
+00:05:52,990 --> 00:05:56,310
+Well, I said the body can be any legal Python expressions.
+
+151
+00:05:56,310 --> 00:05:59,250
+And in the process, if you like, when I invoke or call a
+
+152
+00:05:59,250 --> 00:06:01,910
+procedure definition, it's having bound the variable
+
+153
+00:06:01,910 --> 00:06:03,230
+names to the values.
+
+154
+00:06:03,230 --> 00:06:06,530
+I will simply execute or evaluate each of the
+
+155
+00:06:06,530 --> 00:06:09,200
+expressions of the body in turn until one
+
+156
+00:06:09,200 --> 00:06:10,650
+of two things happens.
+
+157
+00:06:10,650 --> 00:06:12,760
+Either I run out of expressions, I get to the end
+
+158
+00:06:12,760 --> 00:06:16,590
+of the body, in which case a very special value called None
+
+159
+00:06:16,590 --> 00:06:19,210
+is returned, and that is the value of the computation.
+
+160
+00:06:19,210 --> 00:06:21,400
+And if you think about my invocation, I said I was going
+
+161
+00:06:21,400 --> 00:06:23,640
+to bind z to some value.
+
+162
+00:06:23,640 --> 00:06:25,470
+If I get to the end of the expression and there's nothing
+
+163
+00:06:25,470 --> 00:06:28,590
+returned, I'm going to just bind it to None.
+
+164
+00:06:28,590 --> 00:06:31,500
+Alternatively, I will keep executing instructions until I
+
+165
+00:06:31,500 --> 00:06:34,940
+hit that special keyword return that we saw earlier.
+
+166
+00:06:34,940 --> 00:06:37,600
+And in that case, the expression immediately
+
+167
+00:06:37,600 --> 00:06:42,000
+following that keyword return is evaluated, and that value
+
+168
+00:06:42,000 --> 00:06:44,190
+is returned as the value of the function call.
+
+169
+00:06:44,190 --> 00:06:48,040
+That value becomes, if you like, the semantic value of
+
+170
+00:06:48,040 --> 00:06:49,310
+calling that function.
+
+171
+00:06:49,310 --> 00:06:51,480
+And that suggests if you look back at my code, I'm going to
+
+172
+00:06:51,480 --> 00:06:54,630
+be able to then in fact do the computation, and I'm going to
+
+173
+00:06:54,630 --> 00:06:56,540
+be able to reuse it multiple times to get
+
+174
+00:06:56,540 --> 00:06:58,570
+the max of two numbers.
+
+175
+00:06:58,570 --> 00:07:01,990
+So, to summarize this then, the sequence of events are
+
+176
+00:07:01,990 --> 00:07:05,040
+when we call a function, the expressions for each parameter
+
+177
+00:07:05,040 --> 00:07:07,620
+are evaluated the normal way they would be in Python.
+
+178
+00:07:07,620 --> 00:07:09,580
+And they are bound to the formal parameter
+
+179
+00:07:09,580 --> 00:07:10,700
+names of the function.
+
+180
+00:07:10,700 --> 00:07:12,940
+Should be 1 expression for each parameter name.
+
+181
+00:07:12,940 --> 00:07:15,840
+We then transfer control to the first expression in the
+
+182
+00:07:15,840 --> 00:07:19,160
+body of the procedure, in the body of the function, and we
+
+183
+00:07:19,160 --> 00:07:20,190
+start evaluating.
+
+184
+00:07:20,190 --> 00:07:23,600
+And those expressions are evaluated or executed until
+
+185
+00:07:23,600 --> 00:07:26,900
+either that return keyword is reached, in which case we get
+
+186
+00:07:26,900 --> 00:07:29,750
+the value of the following expression and return it back,
+
+187
+00:07:29,750 --> 00:07:32,860
+or we run out of expressions, thereby returning None.
+
+188
+00:07:32,860 --> 00:07:35,770
+And after that, the implication is bound to the
+
+189
+00:07:35,770 --> 00:07:38,350
+return value, and as that return value is what is passed
+
+190
+00:07:38,350 --> 00:07:41,370
+out to whatever asks for it, and control transfers to the
+
+191
+00:07:41,370 --> 00:07:42,360
+next piece of code.
+
+192
+00:07:42,360 --> 00:07:44,200
+In the next segment, we're going to look at some details
+
+193
+00:07:44,200 --> 00:07:46,930
+of understanding mechanically how this happens, but there's
+
+194
+00:07:46,930 --> 00:07:48,490
+the idea of a function definition.
+
