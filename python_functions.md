@@ -66,7 +66,7 @@ In this example using the function get_age, we called the function in the Python
 Within the body of the function expressions are evaluated until none remain. Again if the keyword **return** is reached, the execution of the function is terminated and the value returned. In cases where the key **return** is not used, Python returns `None` to the function call.
 
 In this example, the key **return** was not used. The code calls print on the bond variable 'name' and that is the only evaluated expression. In the Python Shell we can see that `None` is returned.
-![def_get_age](https://raw.githubusercontent.com/diek/function_blog/master/_images/get_age.png)
+![def_no_return](https://raw.githubusercontent.com/diek/function_blog/master/_images/no_return.png)
 
 
 *Unless otherwise specified, this is based upon my notes, and lectures from Learn to Program: The Fundamentals by Jennifer Campbell, Paul Gries. and MITx: 6.00.1x Introduction to Computer Science and Programming Using Python with Eric Grimson, Supplemented with info from PyDocs.*
