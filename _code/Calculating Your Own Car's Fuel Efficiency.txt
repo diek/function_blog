@@ -1,0 +1,12 @@
+Calculating Your Own Car's Fuel Efficiency
+
+car_fuel_efficiency
+(number, number, number) -> number
+
+
+kilometers per Litre = (km B - km A) / fuel.
+Subtract Kilometers A from Kilometers B. This will give you the number of kilometers you drove since your last fill-up.
+Divide the result by the number of litres (fuel) it took to fill up your tank the second time. This will give you your car's kilometer per liter, fuel consumption or car's fuel efficiency.
+
+>>>(3579, 3117, 9.251)
+49.94
