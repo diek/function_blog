@@ -18,7 +18,7 @@ The term module can be somewhat confusing, from PyDocs 'A module is a file conta
 A function in python is the most basic object we can call in Python. Python has a number of built in functions, the one we are most familiar with would have to be `str(object='')` used in printing. Python allows us to create our own custom functions. [Tutorial Point](http://www.tutorialspoint.com/python/python_functions.htm) defines a function nicely as "a block of organized, reusable code that is used to perform a single, related action."
 
 ## Some Key Reasons to Use a Function
-1. **Isolate and Reduce Complexity**, by breaking a problem into smaller manageable parts.
+1. **Isolate and Reduce Complexity**, by breaking a problem into smaller manageable parts. But a key part of this is readable code, using descriptive function names and using DocString to document the code.
 
 2. **Provide Abstraction to Code**, while this concept may sound complex, it is not, it essentially means that we separate the mechanics of what our code is doing from the actual use of the coded function. (A simple example of not abstracting code; in many of the assignments the values were hard coded into the code and stored in the python file. With abstraction this would not happen. Any values would be passed in, only when the function is called or invoked. More on that to come.)
 
