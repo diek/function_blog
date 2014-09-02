@@ -1,6 +1,6 @@
 
 # Creating a function
-For many of you python code was , would be saved in a py file.
+For many of you python code was a series of code statements, with the highest level of organization being a code block. This script would be saved in a py file.
 
 Python has a great deal of flexibility on how we approach solving a challenge. 
 
@@ -8,13 +8,14 @@ From PyDocs, a note on what I mean by statement:
 "Simple statements are comprised within a single logical line"
 
 ## What is a Module
-A module can be somewhat confusing, from PyDocs 'A module is a file containing Python definitions and statements.' Within a module you can have a statements, made up of variables, assignment statements, and a mixture of control constructs executed from top to bottom. The code, a basic script
+A term module can be somewhat confusing, from PyDocs 'A module is a file containing Python definitions and statements.' Within a module you can have a statements, made up of variables, assignment statements, and a mixture of control constructs executed from top to bottom. The code, a basic **script**. In your course, PRE4, I am sure you created many such modules.
 
+## What is a Function
 A function in python is the most basic object we can call in Python. Python has a number of built in functions, the one we are most familiar with would have to be `print`. Python allows us to create our own custom functions. [Tutorial Point](http://www.tutorialspoint.com/python/python_functions.htm) defines a function nicely as "a block of organized, reusable code that is used to perform a single, related action."
 
+## Why use a Function,
 
 
-When most new programmers begin learning python the first construct of code that they create ends up being one or more statements of code, written in a top to bottom manner. Once added to a python file, it becomes a module of code.
 
 ## Overall structure of a python function
 
@@ -24,7 +25,7 @@ When most new programmers begin learning python the first construct of code that
 2. function name, be descriptive, a good guide, 'what does the function do?'
 3. parameters, inside of parenthesis, sometimes referred to as arguments:
 	- parameters, may be none/zero, or 1, 2, 3, or more. If more than one, they must be separated by a comma.
-  	- a parameter(s) is provided in the function call
+    - a parameter(s) is provided in the function call
 4. docstring - optional but should be included, see [PEP 257 -- Docstring Conventions](http://legacy.python.org/dev/peps/pep-0257/) for more detail. We are going to discuss this later. 
 5. body:
 	- heart of the function, like the engine, this is the mechanics and all the working parts.
@@ -37,7 +38,9 @@ When most new programmers begin learning python the first construct of code that
 
 Two important points from PyDocs:
 
-1. "return leaves the current function call with the expression list (or None) as return value." For example:![main_sublime_text_3_screen](https://raw.githubusercontent.com/diek/function_blog/master/_images/demo_return.png) As demonstrated the print statement is never executed. The function evaluates the number, and once return is reached the expression is returned, 9 in the first example, and 7 in the second.
+1. "return leaves the current function call with the expression list (or None) as return value." For example:
+
+![main_sublime_text_3_screen](https://raw.githubusercontent.com/diek/function_blog/master/_images/demo_return.png) As demonstrated the print statement is never executed. The function evaluates the number, and once `return` is reached the expression is returned, 12 in the first example, and 18 in the second.
 
 2. "When return passes control out of a try statement with a finally clause, that finally clause is executed before really leaving the function."
 
