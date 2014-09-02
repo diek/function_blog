@@ -2,7 +2,7 @@
 # CREATING A FUNCTION - Part 1
 For many of you python code was a series of code statements, with the highest level of organization being a code block. This script would be saved in a py file, becoming a python module.
 
-Python provides some flexibility on the approach to solving a challenge. One route is the function.
+Python provides some flexibility on the approach to solving a challenge. One route is the function. Functions can be combined and used to create powerful programs, even without the use of object oriented programming.
 
 ## Three Python Terms
 
@@ -15,12 +15,12 @@ The term module can be somewhat confusing, from PyDocs 'A module is a file conta
 **Note**: Modules can also contain more advanced code, including functions and and classes
 
 ### Function
-A function in python is the most basic object we can call in Python. Python has a number of built in functions, the one we are most familiar with would have to be `print`. Python allows us to create our own custom functions. [Tutorial Point](http://www.tutorialspoint.com/python/python_functions.htm) defines a function nicely as "a block of organized, reusable code that is used to perform a single, related action."
+A function in python is the most basic object we can call in Python. Python has a number of built in functions, the one we are most familiar with would have to be `str(object='')` used in printing. Python allows us to create our own custom functions. [Tutorial Point](http://www.tutorialspoint.com/python/python_functions.htm) defines a function nicely as "a block of organized, reusable code that is used to perform a single, related action."
 
 ## Some Key Reasons to Use a Function
 1. **Isolate and Reduce Complexity**, by breaking a problem into smaller manageable parts.
 
-2. **Provide Abstraction to Code**, while this concept may sound complex it is not, it essentially means that we separate the mechanics of what our code is doing from the actual use of the coded function. (A simple example of not abstracting code. In many of the assignments the values were hard coded into the code written and stored in the python file. With abstraction this would not happen. Any values would be passed in, only when the function is called or invoked. More on that to come.)
+2. **Provide Abstraction to Code**, while this concept may sound complex, it is not, it essentially means that we separate the mechanics of what our code is doing from the actual use of the coded function. (A simple example of not abstracting code; in many of the assignments the values were hard coded into the code and stored in the python file. With abstraction this would not happen. Any values would be passed in, only when the function is called or invoked. More on that to come.)
 
 3. **Avoid Duplicate Code**, separating the code logic from implementation allows reuse of a function as necessary. This is simple concept and a primary theme in coding style. And this goes directly to the Zen of Python, "Readability counts."
 
@@ -28,7 +28,7 @@ A function in python is the most basic object we can call in Python. Python has 
 
 5. **Speed up Code**, putting code in a function is far more efficient memory wise.
 
-**Note:** Steve McConnell wrote this great advice in <u>Code Complete</u>."One of the strongest mental blocks to creating effective functions is a reluctance to create a simple function for a simple purpose. Constructing a whole function to contain two or three lines of code might seem like overkill, but experience shows how helpful a good small function can be. Small function offer several advantages. **One is that they improve readability**." That may not seem important now, but when you are writing larger programs it will certainly become clear.
+**Note:** Steve McConnell wrote this great advice in <u>Code Complete</u>. "One of the strongest mental blocks to creating effective functions is a reluctance to create a simple function for a simple purpose. Constructing a whole function to contain two or three lines of code might seem like overkill, but experience shows how helpful a good small function can be. Small function offer several advantages. **One is that they improve readability**." That may not seem important now, but when you are writing larger programs it will certainly become clear.
 
 ## Overall structure of a python function
 
@@ -39,7 +39,7 @@ A function in python is the most basic object we can call in Python. Python has 
 3. parameters, inside of parenthesis, sometimes referred to as arguments:
 	- parameters, may be none/zero, or 1, 2, 3, or more. If more than one, they must be separated by a comma.
     - a parameter(s) is provided in the function call
-4. docstring - optional but should be included, see [PEP 257 -- Docstring Conventions](http://legacy.python.org/dev/peps/pep-0257/) for more detail. We are going to discuss this later. 
+4. DocString - optional but should be included, see [PEP 257 -- DocString Conventions](http://legacy.python.org/dev/peps/pep-0257/) for more detail. We are going to discuss in detail in Part 2. 
 5. body:
 	- heart of the function, like the engine, this is the mechanics and all the working parts.
 	- made up of one or more statements
@@ -57,7 +57,7 @@ A function in python is the most basic object we can call in Python. Python has 
 
 2. "When return passes control out of a try statement with a finally clause, that finally clause is executed before really leaving the function."
 
-### Invoking(Calling) a function, the other part of abstraction
+### Invoking(Calling) a function, the other half of abstraction
 **Note**: Although a function can have zero parameters, the examples I am using will all have parameters. 
 ![def_get_age](https://raw.githubusercontent.com/diek/function_blog/master/_images/get_age.png)
 
@@ -65,8 +65,21 @@ In this example using the function get_age, we called the function in the Python
 
 Within the body of the function expressions are evaluated until none remain. Again if the keyword **return** is reached, the execution of the function is terminated and the value returned. In cases where the key **return** is not used, Python returns `None` to the function call.
 
-In this example, the key **return** was not used. The code calls print on the bond variable 'name' and that is the only evaluated expression. In the Python Shell we can see that `None` is returned.
-![def_no_return](https://raw.githubusercontent.com/diek/function_blog/master/_images/no_return.png)
+In this example, the keyword **return** was not used. The code calls `print` on the bound variable 'Derrick' and that is the only evaluated expression. In the Python Shell we can see that `None` is returned.
+![def_no_return](https://raw.githubusercontent.com/diek/function_blog/master/_images/nil_return.png)
 
+To summarize the function call, with the help Eric Grimson, the man who turned me into detective when necessary.
 
-*Unless otherwise specified, this is based upon my notes, and lectures from Learn to Program: The Fundamentals by Jennifer Campbell, Paul Gries. and MITx: 6.00.1x Introduction to Computer Science and Programming Using Python with Eric Grimson, Supplemented with info from PyDocs.*
+## Execution of Function Call	
+1. 'Expressions	for each	parameter are evaluated, bound to formal parameter names of function'	
+2. Control moves to first expression in function body
+
+3. Each expression is executed until the `return` keyword reached (returning value of next expression) or no expressions	are left, resulting in the function returning `None`.
+
+4. 'Invocation is bound to the returned value'. For example, if we had a function to add x and y, and we invoked sum = add_num(3, 4), then 7 would be bound.
+ 
+5. 'Control transfers to next piece of code', if applicable.	
+
+## Next Up - Function Recipe.
+
+*Unless otherwise specified, this is based upon my notes, and lectures from Learn to Program: The Fundamentals by Jennifer Campbell, Paul Gries. and MITx: 6.00.1x Introduction to Computer Science and Programming Using Python with Eric Grimson, and supplemented with info from PyDocs.*

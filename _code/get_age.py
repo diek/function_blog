@@ -1,5 +1,5 @@
 def get_age(current_year, birth_year):
-    ''' (num, num) -> num
+    ''' (int, int) -> int
     Determine age by substraction
 
     >>> get_age(2014, 1985)
@@ -10,3 +10,6 @@ def get_age(current_year, birth_year):
     34
     '''
     return current_year - birth_year
+
+
+
