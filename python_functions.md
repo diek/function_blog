@@ -1,24 +1,32 @@
 
-# Creating a function
+# CREATING A FUNCTION - Part 1
 For many of you python code was a series of code statements, with the highest level of organization being a code block. This script would be saved in a py file, becoming a python module.
 
-Python has a great deal of flexibility on how we approach solving a challenge. 
+Python provides some flexibility on the approach to solving a challenge. One route is the function.
 
-## Some Python Terms
+## Three Python Terms
 
 ### Statement
-"Simple statements are comprised within a single logical line"
+PyDocs, 'Simple statements are comprised within a single logical line', e.g. print 'python is fun'
 
 ### Module
-The term module can be somewhat confusing, from PyDocs 'A module is a file containing Python definitions and statements.' Within a module you can have one or more statements, made up of variables, assignment statements, and a mixture of control constructs executed from top to bottom. The code, a basic **script**. In your course, PRE4, I am sure you created many such modules. One caution on naming your module, do not use the name of an existing python module, math.py for example. Modules can also contain more advanced code, including functions and and classes
+The term module can be somewhat confusing, from PyDocs 'A module is a file containing Python definitions and statements.' Within a module you can have one or more statements, made up of variables, assignment statements, and a mixture of control constructs executed from top to bottom. The code, is a basic **script**. In your course, PR4E, I am sure you created many such modules. 
+
+**Note**: Modules can also contain more advanced code, including functions and and classes
 
 ### Function
 A function in python is the most basic object we can call in Python. Python has a number of built in functions, the one we are most familiar with would have to be `print`. Python allows us to create our own custom functions. [Tutorial Point](http://www.tutorialspoint.com/python/python_functions.htm) defines a function nicely as "a block of organized, reusable code that is used to perform a single, related action."
 
-## Some key reasons to use a Function
-1. **Isolate and reduce complexity**, by breaking a problem into smaller manageable parts.
-2. **Speed up Code**, putting your code in a function is far more efficient memory wise.
-3. **Avoid duplicate code**, a simple concept and a primary theme in coding style. And this goes directly to the Zen of Python, "Readability counts."
+## Some Key Reasons to Use a Function
+1. **Isolate and Reduce Complexity**, by breaking a problem into smaller manageable parts.
+
+2. **Provide Abstraction to Code**, while this concept may sound complex it is not, it essentially means that we separate the mechanics of what our code is doing from the actual use of the coded function. (A simple example of not abstracting code. In many of the assignments the values were hard coded into the code written and stored in the python file. With abstraction this would not happen. Any values would be passed in, only when the function is called or invoked. More on that to come.)
+
+3. **Avoid Duplicate Code**, separating the code logic from implementation allows reuse of a function as necessary. This is simple concept and a primary theme in coding style. And this goes directly to the Zen of Python, "Readability counts."
+
+4. **Improve Debugging**, separating code into functions improves the ability to identify problems, errors and bottlenecks.
+
+5. **Speed up Code**, putting code in a function is far more efficient memory wise.
 
 **Note:** Steve McConnell wrote this great advice in <u>Code Complete</u>."One of the strongest mental blocks to creating effective functions is a reluctance to create a simple function for a simple purpose. Constructing a whole function to contain two or three lines of code might seem like overkill, but experience shows how helpful a good small function can be. Small function offer several advantages. **One is that they improve readability**." That may not seem important now, but when you are writing larger programs it will certainly become clear.
 
@@ -41,12 +49,18 @@ A function in python is the most basic object we can call in Python. Python has 
 ### The return statement.
 
 
-Two important points from PyDocs:
+**Two important points from PyDocs:**
 
-1. "return leaves the current function call with the expression list (or None) as return value." As demonstrated below the print statement is never executed. The function evaluates the number, and once `return` is reached the expression is returned, 12 in the first example, and 18 in the second.
+1. "Return leaves the current function call with the expression list (or None) as return value." As demonstrated below the print statement is never executed. The function evaluates the number, and once `return` is reached the expression is returned, 12 in the first example, and 18 in the second.
 
 ![main_sublime_text_3_screen](https://raw.githubusercontent.com/diek/function_blog/master/_images/demo_return.png) 
 
 2. "When return passes control out of a try statement with a finally clause, that finally clause is executed before really leaving the function."
 
-*Unless otherwise specified, this is based upon my notes, and lectures from Learn to Program: The Fundamentals by Jennifer Campbell, Paul Gries. Supplemented with info from PyDocs.*
+### Invoking(Calling) a function, the other part of abstraction
+**Note**: Although a function can have zero parameters, the examples I am using will all have parameters. 
+
+
+
+
+*Unless otherwise specified, this is based upon my notes, and lectures from Learn to Program: The Fundamentals by Jennifer Campbell, Paul Gries. and MITx: 6.00.1x Introduction to Computer Science and Programming Using Python with Eric Grimson, Supplemented with info from PyDocs.*
